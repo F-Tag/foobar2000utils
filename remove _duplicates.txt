@@ -64,7 +64,7 @@ function remove_duplicated_data() {
     var loc = plman.GetPlayingItemLocation();
     var locitem = loc.PlaylistItemIndex;
     var handles = plman.GetPlaylistItems(plman.ActivePlaylist);
-    var re_album = new RegExp('come along', 'i');
+    var re_album = new RegExp('come along|live', 'i');
     var count = plman.PlaylistItemCount(plman.ActivePlaylist);
     if (count <= 0) return;
 
@@ -95,7 +95,7 @@ function remove_duplicated_data() {
         var re = new RegExp('^' + tmp_title, 'i');
         //  remix| version| mix|
         var re2 = new RegExp('live|tv|short|single', 'i');
-        var re_inst = new RegExp('instrumental|without vocals|backing track|karaoke|inst|カラオケ', 'i');
+        var re_inst = new RegExp('instrumental|without vocals|backing track|karaoke|inst|カラオケ|off vocal|without', 'i');
         if (re_inst.test(sorted_list[i][0])) {
             fb.trace("check inst: " + sorted_list[i][0] + " " + sorted_list[i][2] + " " + sorted_list[i][3] + " " + sorted_list[i][4]);
             delete_items.push(sorted_list[i][1]);
