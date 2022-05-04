@@ -87,7 +87,7 @@ function remove_duplicated_data() {
     for (var i = 0; i < count; i++) {
         var re = new RegExp('^' + tmp_title, 'i');
         //  | version
-        var re2 = new RegExp('live|tv|short|single|remix| mix', 'i');
+        var re2 = new RegExp('live|tv|short|single|remix| mix|wo ', 'i');
         var re_inst = new RegExp('instrumental|without vocals|backing track|karaoke|inst|カラオケ|off vocal|without ', 'i');
         var re_remaster = new RegExp('remaster', 'i');
         if (re_inst.test(sorted_list[i][0])) {
