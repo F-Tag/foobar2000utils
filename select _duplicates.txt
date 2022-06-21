@@ -1,4 +1,4 @@
-﻿// ==PREPROCESSOR==
+// ==PREPROCESSOR==
 // @name "Duplication Remover"
 // @author "Fumiaki Taguchi"
 // @feature "dragdrop"
@@ -86,8 +86,7 @@ function remove_duplicated_data() {
     // 実際の判定処理
     for (var i = 0; i < count; i++) {
         var re = new RegExp('^' + tmp_title, 'i');
-        //  | version
-        var re2 = new RegExp('live|tv|short|single|remix| mix|wo ', 'i');
+        var re2 = new RegExp('live|tv|short|single|remix| mix|wo | edit| ver| style|another| version', 'i');
         var re_inst = new RegExp('instrumental|without vocals|backing track|karaoke|inst|カラオケ|off vocal|without |vocalless', 'i');
         var re_remaster = new RegExp('remaster', 'i');
         if (re_inst.test(sorted_list[i][0])) {
@@ -114,7 +113,7 @@ function remove_duplicated_data() {
             tmp_index = sorted_list[i][1];
             tmp_date = sorted_list[i][3];
             tmp_album = sorted_list[i][4];
-        } else if (check3 && re.test(sorted_list[i][0]) && re2.test(sorted_list[i][0])) {
+        } else if (check3 && sorted_list[i][2] == tmp_artist && re.test(sorted_list[i][0]) && re2.test(sorted_list[i][0])) {
             fb.trace("check3 * " + sorted_list[i][0] + " " + sorted_list[i][2] + " " + sorted_list[i][3]);
             delete_items.push(sorted_list[i][1]);
         } else {
@@ -135,4 +134,3 @@ function remove_duplicated_data() {
     sorted_list = null;
 
 }
-
