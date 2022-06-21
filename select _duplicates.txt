@@ -88,7 +88,7 @@ function remove_duplicated_data() {
         var re = new RegExp('^' + tmp_title, 'i');
         //  | version
         var re2 = new RegExp('live|tv|short|single|remix| mix|wo ', 'i');
-        var re_inst = new RegExp('instrumental|without vocals|backing track|karaoke|inst|カラオケ|off vocal|without ', 'i');
+        var re_inst = new RegExp('instrumental|without vocals|backing track|karaoke|inst|カラオケ|off vocal|without |vocalless', 'i');
         var re_remaster = new RegExp('remaster', 'i');
         if (re_inst.test(sorted_list[i][0])) {
             fb.trace("check inst: " + sorted_list[i][0] + " " + sorted_list[i][2] + " " + sorted_list[i][3] + " " + sorted_list[i][4]);
